@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessibilidade para Todos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/open-dyslexic" rel="stylesheet">
+</head>
+
+<body>
+
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="brand">
+                <svg class="brand-logo" viewBox="0 0 120 120" fill="none">
+                    <defs>
+                        <linearGradient id="navGradPrimary" x1="10" y1="10" x2="110" y2="110"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#2563EB" />
+                            <stop offset="100%" stop-color="#7C3AED" />
+                        </linearGradient>
+                        <linearGradient id="navGradAccent" x1="60" y1="20" x2="100" y2="100"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#F59E0B" />
+                            <stop offset="100%" stop-color="#D97706" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="60" cy="60" r="50" stroke="url(#navGradPrimary)" stroke-width="9" stroke-linecap="round"
+                        stroke-dasharray="210 60" />
+                    <circle cx="60" cy="60" r="16" fill="url(#navGradAccent)" />
+                    <path d="M 35 60 C 35 42, 42 35, 60 35 C 78 35, 85 42, 85 60" stroke="#FFFFFF" stroke-width="6"
+                        stroke-linecap="round" opacity="0.9" />
+                    <path d="M 30 75 C 40 90, 80 90, 90 75" stroke="url(#navGradPrimary)" stroke-width="6"
+                        stroke-linecap="round" />
+                </svg>
+                <span class="brand-name">Acessibilidade para Todos</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Navegação principal">
+                <a href="#inicio">Início</a>
+                <a href="#recursos">Ferramentas</a>
+                <a href="#sobre">Sobre</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Botão de Abertura -->
+    <button id="open-panel" class="panel-trigger" type="button" aria-expanded="false" aria-controls="access-panel"
+        aria-label="Abrir configurações de acessibilidade">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="m4.93 4.93 4.24 4.24" />
+            <path d="m14.83 9.17 4.24-4.24" />
+            <path d="m14.83 14.83 4.24 4.24" />
+            <path d="m9.17 14.83-4.24 4.24" />
+            <circle cx="12" cy="12" r="4" />
+        </svg>
+        <span>Acessibilidade</span>
+    </button>
+
+    <!-- Painel Lateral (Drawer) -->
+    <aside id="access-panel" class="access-drawer" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-label="Painel de Acessibilidade">
+        <div class="drawer-header">
+            <div>
+                <h2>Acessibilidade Web</h2>
+                <p>Ajuste a interface para suas necessidades visuais e de leitura.</p>
+            </div>
+            <button id="close-panel" class="close-trigger" type="button" aria-label="Fechar painel">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="drawer-body">
+            <div id="controls-grid" class="controls-grid">
+                <button type="button" class="ac-btn" data-action="increase" aria-label="Aumentar tamanho da fonte">
+                    <span class="ac-badge">A+</span>
+                    <span class="ac-title">Aumentar Texto</span>
+                </button>
+
+                <button type="button" class="ac-btn" data-action="decrease" aria-label="Diminuir tamanho da fonte">
+                    <span class="ac-badge">A-</span>
+                    <span class="ac-title">Diminuir Texto</span>
+                </button>
+
+                <button type="button" class="ac-btn" data-action="contrast" aria-pressed="false"
+                    aria-label="Modo alto contraste">
+                    <span class="ac-badge">◐</span>
+                    <span class="ac-title">Alto Contraste</span>
+                </button>
+
+                <button type="button" class="ac-btn" data-action="dyslexic" aria-pressed="false"
+                    aria-label="Fonte amigável para dislexia">
+                    <span class="ac-badge">Aa</span>
+                    <span class="ac-title">Fonte Dislexia</span>
+                </button>
+
+                <button type="button" class="ac-btn" data-action="reducedMotion" aria-pressed="false"
+                    aria-label="Reduzir animações">
+                    <span class="ac-badge">⏸</span>
+                    <span class="ac-title">Sem Animação</span>
+                </button>
+
+                <button type="button" class="ac-btn" data-action="line" aria-pressed="false"
+                    aria-label="Linha de leitura guia">
+                    <span class="ac-badge">≡</span>
+                    <span class="ac-title">Linha Guia</span>
+                </button>
+
+                <button type="button" class="ac-btn" data-action="read" aria-pressed="false"
+                    aria-label="Ouvir conteúdo em voz alta">
+                    <span class="ac-badge">🔊</span>
+                    <span class="ac-title">Ouvir Texto</span>
+                </button>
+
+                <button type="button" class="ac-btn" data-action="highlight" aria-pressed="false"
+                    aria-label="Destacar links interativos">
+                    <span class="ac-badge">🔗</span>
+                    <span class="ac-title">Destacar Links</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="drawer-footer">
+            <button id="reset-btn" class="reset-action" type="button">Restaurar configurações originais</button>
+        </div>
+    </aside>
+
+    <div id="panel-overlay" class="drawer-backdrop" aria-hidden="true"></div>
+
+    <main id="main-content" class="main-wrapper">
+        <section id="inicio" class="hero-block">
+            <div class="hero-badge">Tecnologia sem barreiras</div>
+            <h1>Sua navegação mais simples, clara e acessível.</h1>
+            <p class="hero-sub">Um conjunto de ferramentas integradas para personalizar tipografia, cores, foco e
+                síntese de voz em tempo real.</p>
+
+            <div class="hero-cta-group">
+                <a href="#recursos" class="cta-primary">Ver ferramentas</a>
+                <a href="#sobre" class="cta-secondary">Conhecer o projeto</a>
+            </div>
+        </section>
+
+        <section id="recursos" class="features-block">
+            <div class="block-header">
+                <h2>Recursos do Painel</h2>
+                <p>Desenvolvidos para atender diferentes perfis visuais, motores e cognitivos.</p>
+            </div>
+
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="card-tag">Tipografia</div>
+                    <h3>Ajuste Dinâmico de Escala</h3>
+                    <p>Aumente ou reduza o tamanho do texto sem perder a proporção do layout ou ocultar elementos
+                        visuais.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="card-tag">Visão</div>
+                    <h3>Modo Alto Contraste</h3>
+                    <p>Substitui o esquema de cores por tons de máxima refletância e separação visual nítida.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="card-tag">Leitura</div>
+                    <h3>Fonte OpenDyslexic</h3>
+                    <p>Muda a tipografia para um formato desenhado para diminuir a inversão de caracteres na leitura.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="card-tag">Conforto</div>
+                    <h3>Redução de Movimento</h3>
+                    <p>Desativa efeitos dinâmicos para prevenir desconforto visual e estímulos excessivos.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="card-tag">Foco</div>
+                    <h3>Régua de Leitura Guia</h3>
+                    <p>Uma régua visual sensível ao movimento do mouse que auxilia no acompanhamento linha por linha.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="card-tag">Áudio</div>
+                    <h3>Leitor de Voz Integrado</h3>
+                    <p>Converte o texto principal em síntese de voz em português para consumo totalmente audível.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="card-tag">Navegação</div>
+                    <h3>Destaque Visual de Links</h3>
+                    <p>Aplica contornos vibrantes e marcadores imediatos sobre todas as áreas clicáveis do site.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="card-tag">Controle</div>
+                    <h3>Restauração Imediata</h3>
+                    <p>Retorne ao padrão da página com um único clique a qualquer momento.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="sobre" class="about-block">
+            <div class="about-card">
+                <h2>Sobre a iniciativa</h2>
+                <p>Este site é um projeto focado na aplicação prática das diretrizes de acessibilidade web (WCAG). O
+                    objetivo é demonstrar como pequenas adaptações de código e design oferecem autonomia completa para
+                    qualquer usuário.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Acessibilidade para Todos.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
